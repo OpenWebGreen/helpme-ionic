@@ -84,9 +84,12 @@ angular.module('starter.controllers', [])
     })
 
     .controller('SurvivalCtrl', function ($scope, Survival, $stateParams) {
-        Survival.one($stateParams.id).then(function (response) {
-            $scope.desastre = response
-        })
+        if ($stateParams.id) {
+            Survival.one($stateParams.id).then(function (response) {
+                $scope.desastre = response
+            })
+        }
+
     })
 
     .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {

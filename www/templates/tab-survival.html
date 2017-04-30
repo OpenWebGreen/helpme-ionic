@@ -1,16 +1,64 @@
 <ion-view view-title="Survival">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+        <ion-list>
+            <h3 style="padding-left: 20px">Tips</h3>
+            <div class="card" style="padding: 20px 0 20px 0">
+                <div class="card-header">
+                    <h3 style="padding: 0 20px 0 20px">How to avoid?</h3>
+                </div>
+                <div class="card-content" style="padding: 20px">
+                    <p style="font-size: 18px">
+                        <i class="ion-checkmark" style="color: #4d4d4d;"></i>
+                        <span style="color: #8f8f8f;">
+                            Do not run cuts and landfills on land without technical
+                            support.
+                        </span>
+                    </p>
+                    <p style="font-size: 18px">
+                        <i class="ion-checkmark" style="color: #4d4d4d;"></i>
+                        <span style="color: #8f8f8f;">
+                            Do not deforest.
+                        </span>
+                    </p>
+                    <p style="font-size: 18px">
+                        <i class="ion-checkmark" style="color: #4d4d4d;"></i>
+                        <span style="color: #8f8f8f;">
+                            Denounce irregular works, cuts and landfills.
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="padding: 20px 0 20px 0">
+                <div class="card-header">
+                    <h3 style="padding: 0 20px 0 20px">What to during the occurrence</h3>
+                </div>
+                <div class="card-content" style="padding: 20px">
+                    <p style="font-size: 18px">
+                        <i class="ion-checkmark" style="color: #4d4d4d;"></i>
+                        <span style="color: #8f8f8f;">
+                            Call 199 and activate the Civil Defense
+                        </span>
+                    </p>
+                    <p style="font-size: 18px">
+                        <i class="ion-checkmark" style="color: #4d4d4d;"></i>
+                        <span style="color: #8f8f8f;">
+                            If you identify one of the danger signs near your home, leave the house immediately
+                        </span>
+                    </p>
+                    <p style="font-size: 18px">
+                        <i class="ion-checkmark" style="color: #4d4d4d;"></i>
+                        <span style="color: #8f8f8f;">
+                            Find a safe place and stay calm.
+                        </span>
+                    </p>
+                    <p style="font-size: 18px">
+                        <i class="ion-checkmark" style="color: #4d4d4d;"></i>
+                        <span style="color: #8f8f8f;">
+                            Safely isolate hazardous locations and avoid approaching other people.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
 </ion-view>

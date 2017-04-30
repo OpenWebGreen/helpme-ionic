@@ -1,13 +1,13 @@
 angular.module('starter.controllers', [])
 
-    .controller('DashCtrl', function ($scope, $ionicLoading, $compile, Dash) {
+    .controller('DashCtrl', function ($scope, $ionicLoading, $compile, $state, Dash) {
         Dash.one(47.545499999999997, -122.39830000000001).then(function (response) {
             function initialize() {
                 var myLatlng = new google.maps.LatLng(47.545499999999997, -122.39830000000001);
 
                 var mapOptions = {
                     center: myLatlng,
-                    zoom: 16,
+                    zoom: 13,
                     mapTypeId: google.maps.MapTypeId.TERRAIN
                 };
                 var map = new google.maps.Map(document.getElementById("map"),
@@ -20,22 +20,29 @@ angular.module('starter.controllers', [])
                 var infowindow = new google.maps.InfoWindow({
                     content: compiled[0]
                 });
-                for (var i = 0; i < response.length; i++) {
-                    var location = response[i];
+                var id = [];
+                function addClickEvent(marker, i) {
+                    marker.addListener('click', function() {
+                        $state.go('tab.account')
+                    });
+                }
+                for (var i = 0; i != response.length; i++) {
                     var latLong = new google.maps.LatLng(response[i].latitude, response[i].longitude);
+                    id[i] = response[i].id;
                     var marker = new google.maps.Circle({
-                        strokeColor: '#FF0000',
-                        strokeOpacity: 0.8,
+                        strokeOpacity: 0,
                         strokeWeight: 2,
                         fillColor: '#FF0000',
                         fillOpacity: 0.35,
                         map: map,
                         center: latLong,
                         radius: Math.sqrt(100 / 5) * 100,
-                        id: response[i].id
+                        latitude: response[i].latitude,
+                        longitude: response[i].longitude
                     });
-
+                    addClickEvent(marker, i);
                 }
+
                 $scope.map = map;
             }
 
@@ -51,16 +58,6 @@ angular.module('starter.controllers', [])
                     showBackdrop: false
                 });
 
-                navigator.geolocation.getCurrentPosition(function (pos) {
-                    $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-                    $scope.loading.hide();
-                }, function (error) {
-                    alert('Unable to get location: ' + error.message);
-                });
-            };
-
-            $scope.clickTest = function () {
-                alert('Example of infowindow with ng-click')
             };
         });
     })

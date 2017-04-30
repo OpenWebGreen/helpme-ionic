@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   .state('tab.survival', {
-      url: '/survival',
+      url: '/survival/guide',
       views: {
         'tab-survival': {
           templateUrl: 'templates/tab-survival.html',
